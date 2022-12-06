@@ -1,10 +1,10 @@
 {
-  "short_name": "nextarter-chakra",
+  "short_name": "Krowd.gg",
   "name": "Next.js App Template",
   "lang": "en",
   "start_url": "/",
-  "background_color": "#FFFFFF",
-  "theme_color": "#FFFFFF",
+  "background_color": "#18181B",
+  "theme_color": "#18181B",
   "dir": "ltr",
   "display": "standalone",
   "orientation": "portrait",

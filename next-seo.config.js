@@ -1,9 +1,9 @@
 /** @type {import('next-seo').DefaultSeoProps} */
 const defaultSEOConfig = {
-  title: "nextarter-chakra",
-  titleTemplate: "%s | nextarter-chakra",
+  title: "Krowd.gg",
+  titleTemplate: "Krowd.gg",
   defaultTitle: "nextarter-chakra",
-  description: "Next.js + chakra-ui + TypeScript template",
+  description: "Krowd.gg app",
   canonical: "https://nextarter-chakra.sznm.dev",
   openGraph: {
     url: "https://nextarter-chakra.sznm.dev",

@@ -13,7 +13,7 @@ const extendedColors: DeepPartial<
     600: "",
     700: "",
     800: "",
-    900: "",
+    900: "#18181B",
   },
 };
 
