@@ -1,11 +1,10 @@
-import { Heading, Spinner } from "@chakra-ui/react";
+import { Heading } from "@chakra-ui/react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 
-// eslint-disable-next-line consistent-return
 const Protected = () => {
   const { push } = useRouter();
-  const { status } = useSession({
+  const { data: session, status } = useSession({
     required: true,
     onUnauthenticated: () => {
       push("/auth/signin");
@@ -13,13 +12,15 @@ const Protected = () => {
   });
 
   if (status === "loading") {
-    return <Spinner />;
+    return <Heading>Loading...</Heading>;
   }
 
   if (status !== "authenticated")
     return (
       <Heading> You are unauthenticated. this is a protected page.</Heading>
     );
+
+  return <Heading>{session.user ? session.user.email : ""}</Heading>;
 };
 
 export default Protected;

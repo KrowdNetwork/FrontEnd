@@ -18,7 +18,7 @@ const Offers = () => {
         bgImage="/background.png"
         h="83vh"
       >
-        <Box onClick={() => push("/authorizedSocialMedia")}>
+        <Box onClick={() => push("/authorized-social-media")}>
           <IconArrowLeft />
         </Box>
 

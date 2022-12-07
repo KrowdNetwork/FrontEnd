@@ -23,6 +23,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 
 import ButtonStyle from "lib/components/samples/ButtonStyle";
+import { Message } from "lib/components/samples/Message";
 import SomeImage from "lib/components/samples/SomeImage";
 
 const providers = [
@@ -45,8 +46,9 @@ const providers = [
 ];
 
 const Signin = () => {
-  const { data: session, status } = useSession();
+  const { status } = useSession();
   const { push } = useRouter();
+
   const [email, setEmail] = useState("");
 
   if (status === "loading")
@@ -61,19 +63,18 @@ const Signin = () => {
       </Container>
     );
 
-  if (session) {
-    push("/authorizedSocialMedia");
-  }
-
   const handleOAuthSignIn = (provider: string) => () => signIn(provider);
 
   // eslint-disable-next-line consistent-return
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
-    if (!email) return false;
-
-    signIn("email", { email, redirect: false });
+    if (!email) {
+      Message.error("", "Email não valido");
+      return;
+    }
+    push("/authorized-social-media");
+    // signIn("email", { email, redirect: false });
   };
 
   return (

@@ -1,19 +1,27 @@
-import { Avatar, Flex, Heading, Img, Text } from "@chakra-ui/react";
+import { Avatar, Flex, Heading, Img, Text, Button } from "@chakra-ui/react";
+import { IconBellRinging } from "@tabler/icons";
+import { useRouter } from "next/router";
 
 import ContainerStyle from "lib/components/samples/Container";
 import Menu from "lib/components/samples/Menu";
 
 const HomePage = () => {
+  const { push } = useRouter();
+
   return (
     <ContainerStyle>
       <Flex
         flexDir="column"
-        gap={8}
+        gap={4}
         p="12px"
         align="center"
         bg="url(white-noise.png), linear-gradient(127.25deg, #8338EC 0%, #FFBE0B 100%)"
         h="382px"
       >
+        <Button onClick={() => push("/authorized-social-media")}>
+          <IconBellRinging />
+        </Button>
+
         <Avatar
           mt={12}
           name="Segun Adebayo"

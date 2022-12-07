@@ -6,6 +6,7 @@ interface ButtonStyleProps extends ButtonProps {
   asLink?: boolean;
   width?: string;
   onClick?: () => void;
+  type?: "button" | "submit" | "reset" | undefined;
 }
 
 const ButtonStyle = ({
@@ -14,6 +15,7 @@ const ButtonStyle = ({
   asLink,
   width,
   onClick,
+  type,
 }: ButtonStyleProps) => {
   return (
     <Button
@@ -26,6 +28,7 @@ const ButtonStyle = ({
       href={hrefName}
       w={width}
       onClick={onClick}
+      type={type}
     >
       {children}
     </Button>
