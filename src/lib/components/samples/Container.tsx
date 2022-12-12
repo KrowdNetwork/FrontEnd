@@ -4,7 +4,7 @@ import { Container } from "@chakra-ui/react";
 const ContainerStyle = ({ children }: ContainerProps) => {
   return (
     <Container
-      minH="100vh"
+      h="2060px"
       display="grid"
       gridTemplateRows="1fr auto"
       maxW="full"

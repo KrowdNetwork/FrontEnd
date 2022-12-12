@@ -1,9 +1,9 @@
 import { Button, Flex, Text } from "@chakra-ui/react";
 import {
-  IconChecklist,
+  IconClipboardText,
   IconUser,
   IconBriefcase,
-  IconPlayCard,
+  IconBox,
   IconBuildingStore,
 } from "@tabler/icons";
 import Link from "next/link";
@@ -11,19 +11,19 @@ import Link from "next/link";
 const Menu = () => {
   const menuContent = [
     {
-      name: "pontos",
+      name: "Pontos",
       path: "/",
-      Icon: <IconChecklist />,
+      Icon: <IconClipboardText />,
     },
     {
-      name: "resgate",
-      path: "/rescue",
+      name: "Loja",
+      path: "/store",
       Icon: <IconBuildingStore />,
     },
     {
-      name: "comprar cards",
-      path: "/cards",
-      Icon: <IconPlayCard />,
+      name: "Box",
+      path: "/box",
+      Icon: <IconBox />,
     },
     {
       name: "inventário",
@@ -44,9 +44,10 @@ const Menu = () => {
       align="center"
       bg="#27272A"
       minH="97px"
-      p="20px"
-      bottom={0}
-      gap={4}
+      placeContent=" center space-between"
+      padding="0px 12px"
+      position="fixed"
+      bottom="0"
     >
       {menuContent.map(({ name, path, Icon }) => {
         return (

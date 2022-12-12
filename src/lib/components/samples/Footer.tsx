@@ -11,6 +11,7 @@ const Footer = ({ children }: FlexProps) => {
       flexDir="column"
       minH="97px"
       p="20px"
+      position="fixed"
       bottom={0}
       gap={4}
     >

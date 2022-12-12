@@ -1,8 +1,8 @@
 import { Badge, Flex, Img } from "@chakra-ui/react";
 
-import CardSwitch from "../samples/CardSwitch";
+import { socialMedia } from "../mocks/socialMedia";
 
-import { socialMedia } from "./mock";
+import CardSwitch from "./samples/CardSwitch";
 
 interface SocialMediaProps {
   showPoint: boolean;

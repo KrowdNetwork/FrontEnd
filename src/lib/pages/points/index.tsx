@@ -1,27 +1,36 @@
-import { Avatar, Flex, Heading, Img, Text, Button } from "@chakra-ui/react";
+import {
+  Avatar,
+  Box,
+  Button,
+  Flex,
+  Heading,
+  Img,
+  Text,
+} from "@chakra-ui/react";
 import { IconBellRinging } from "@tabler/icons";
 import { useRouter } from "next/router";
 
-import ContainerStyle from "lib/components/samples/Container";
+import BoxCard from "lib/components/samples/BoxCard";
+import Challenges from "lib/components/samples/Challenges";
 import Menu from "lib/components/samples/Menu";
+import Missions from "lib/components/samples/Missions";
 
-const HomePage = () => {
+const Points = () => {
   const { push } = useRouter();
 
   return (
-    <ContainerStyle>
+    <Box mb={6}>
       <Flex
         flexDir="column"
-        gap={4}
-        p="12px"
+        gap={2}
         align="center"
         bg="url(white-noise.png), linear-gradient(127.25deg, #8338EC 0%, #FFBE0B 100%)"
         h="382px"
+        mb="24px"
       >
         <Button onClick={() => push("/authorized-social-media")}>
           <IconBellRinging />
         </Button>
-
         <Avatar
           mt={12}
           name="Segun Adebayo"
@@ -51,12 +60,20 @@ const HomePage = () => {
             pontos
           </Text>
         </Flex>
-        <Img src="/lolCenter.png" />
+        <Img src="/KAMI 2 1.png" />
+        <Flex flexDir="column">
+          <Flex p="12px" flexDir="column" gap={4}>
+            <Challenges />
+            <Missions />
+          </Flex>
+
+          <BoxCard />
+        </Flex>
       </Flex>
 
       <Menu />
-    </ContainerStyle>
+    </Box>
   );
 };
 
-export default HomePage;
+export default Points;

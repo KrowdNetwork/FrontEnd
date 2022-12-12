@@ -16,6 +16,7 @@ import {
   IconBrandFacebook,
   IconBrandGoogle,
   IconBrandTwitch,
+  IconBrandInstagram,
 } from "@tabler/icons";
 import { AnimatePresence, motion } from "framer-motion";
 import { signIn, useSession } from "next-auth/react";
@@ -28,7 +29,7 @@ import SomeImage from "lib/components/samples/SomeImage";
 
 const providers = [
   {
-    name: "Twitch.tv",
+    name: "Twitch",
     Icon: <IconBrandTwitch />,
     bgColor: "#754FF8",
   },
@@ -43,14 +44,18 @@ const providers = [
     bgColor: "#FFFFFF",
     color: "#537DED",
   },
+  {
+    name: "Instagram",
+    Icon: <IconBrandInstagram />,
+  },
 ];
 
 const Signin = () => {
-  const { status } = useSession();
+  const { data: session, status } = useSession();
   const { push } = useRouter();
 
   const [email, setEmail] = useState("");
-
+  if (session) push("/");
   if (status === "loading")
     return (
       <Container
@@ -80,7 +85,7 @@ const Signin = () => {
   return (
     <Container display="flex" alignItems="center" flexDir="column">
       <Flex
-        width="full"
+        width="100%"
         align="center"
         h="204px"
         justify="center"
@@ -95,7 +100,7 @@ const Signin = () => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <SomeImage width="160px" height="170px" />
+            <SomeImage />
           </motion.div>
         </AnimatePresence>
 
@@ -105,7 +110,7 @@ const Signin = () => {
       </Flex>
       <Flex
         mt="32px"
-        w="389px"
+        w="100%"
         borderRadius="12px"
         bg="#27272A"
         p="24px"
@@ -120,6 +125,9 @@ const Signin = () => {
               onClick={handleOAuthSignIn(name.toLocaleLowerCase())}
               bg={bgColor}
               w="100%"
+              maxW="341px"
+              h="51px"
+              borderRadius="8px"
               color={color || ""}
             >
               <Flex align="center" w="100%" justify="center">
@@ -143,9 +151,15 @@ const Signin = () => {
         </Flex>
 
         <Flex flexDir="column" gap={2}>
-          <Text fontWeight={600} fontSize="16px" lineHeight="24px">
-            Criar conta ou logar com e-mail
-          </Text>
+          <Flex align="center" flexWrap="wrap" gap={1}>
+            <Text fontWeight={600} fontSize="16px" lineHeight="24px">
+              Criar conta ou logar com
+            </Text>
+            <Text fontWeight={600} fontSize="16px" lineHeight="24px">
+              e-mail
+            </Text>
+          </Flex>
+
           <chakra.form onSubmit={handleSubmit}>
             <FormControl>
               <Input
