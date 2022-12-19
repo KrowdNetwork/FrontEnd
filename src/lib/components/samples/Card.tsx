@@ -1,30 +1,105 @@
-import { Avatar, Badge, Box, Flex, Text } from "@chakra-ui/react";
+import { Badge, Box, Flex, Img, Text } from "@chakra-ui/react";
+import { Player } from "video-react";
 
-const Card = () => {
+interface CardProps {
+  imgPath?: string;
+  description: string;
+  price?: number;
+  points?: number;
+  widthCard?: string;
+  heightImg?: string;
+  infos?: string;
+  isVideo?: boolean;
+  videoPath?: string;
+}
+
+const Card = ({
+  imgPath,
+  description,
+  price,
+  points,
+  widthCard,
+  heightImg,
+  infos,
+  isVideo,
+  videoPath,
+}: CardProps) => {
   return (
-    <Box
-      padding="3px"
-      position="relative"
-      background="url(white-noise.png), linear-gradient(127.25deg, #FFBE0B 0%, #EBFF00 100%)"
-      boxShadow="0px 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 5px 10px rgba(0, 0, 0, 0.2), 0px 15px 40px rgba(0, 0, 0, 0.4)"
-      borderRadius="12px"
-    >
-      <Flex flexDir="column" bg="black" borderRadius="8px" p="8px">
-        <Flex justify="flex-end" align="center">
-          <Badge variant="solid" colorScheme="yellow">
-            Ativo
+    <Flex flexDir="column" minW={widthCard} mt="20px">
+      {isVideo ? (
+        <Box borderRadius="12px 12px 0px 0px">
+          <Player autoPlay playsInline fluid src={videoPath} />
+        </Box>
+      ) : (
+        <Img
+          src={imgPath}
+          borderRadius="12px 12px 0px 0px"
+          height={heightImg}
+        />
+      )}
+
+      <Flex
+        p={4}
+        w="100%"
+        flexDir="column"
+        bg="#27272A"
+        borderRadius="0px 0px 12px 12px"
+        gap="12px"
+      >
+        <Text
+          fontSize="14px"
+          fontWeight={700}
+          lineHeight="16px"
+          textAlign="start"
+        >
+          {description}
+        </Text>
+        {price && (
+          <Badge
+            padding="4px 8px"
+            bg="#3F3F46"
+            borderRadius="12px"
+            fontWeight={600}
+            w="min-content"
+            fontSize="12px"
+            lineHeight="16px"
+            gap={4}
+          >
+            R$ {price},00
           </Badge>
-        </Flex>
+        )}
 
-        <Flex>
-          <Avatar src="/logo.png" name="" width="89px" height="89px" />
-
-          <Text fontWeight={900} fontSize="16px" lineHeight="19.2px" p={4}>
-            Kami Rouba Barão 55/200
-          </Text>
-        </Flex>
+        {points && (
+          <Badge
+            padding="4px 8px"
+            bg="#3F3F46"
+            borderRadius="12px"
+            fontWeight={600}
+            w="min-content"
+            fontSize="12px"
+            lineHeight="16px"
+            gap={4}
+            textTransform="lowercase"
+          >
+            {points} pts
+          </Badge>
+        )}
+        {infos && (
+          <Badge
+            padding="4px 8px"
+            bg="#3F3F46"
+            borderRadius="12px"
+            fontWeight={600}
+            w="min-content"
+            fontSize="12px"
+            lineHeight="16px"
+            gap={4}
+          >
+            {infos}
+          </Badge>
+        )}
       </Flex>
-    </Box>
+    </Flex>
   );
 };
 

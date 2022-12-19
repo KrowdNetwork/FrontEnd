@@ -1,17 +1,16 @@
-import type { ContainerProps } from "@chakra-ui/react";
-import { Container } from "@chakra-ui/react";
+import type { BoxProps } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 
-const ContainerStyle = ({ children }: ContainerProps) => {
+import Menu from "./Menu";
+
+const ContainerStyle = ({ children }: BoxProps) => {
   return (
-    <Container
-      h="2060px"
-      display="grid"
-      gridTemplateRows="1fr auto"
-      maxW="full"
-      p={0}
-    >
-      {children}
-    </Container>
+    <Box>
+      <Flex minH="100%" flexDirection="column" w="100%" p={0}>
+        {children}
+      </Flex>
+      <Menu />
+    </Box>
   );
 };
 

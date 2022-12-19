@@ -36,7 +36,7 @@ const Challenges = () => {
                   lineHeight="20px"
                   color="rgba(255, 255, 255, 1)"
                 >
-                  <AccordionButton p={0} mb={2}>
+                  <AccordionButton p={0} mb={2} mt={2}>
                     <Flex flex="1" textAlign="left" align="center" gap={2}>
                       <>
                         <Icon

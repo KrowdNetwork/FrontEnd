@@ -1,18 +1,17 @@
-import { Flex, Text, Box } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
 import { IconArrowLeft } from "@tabler/icons";
 import { useRouter } from "next/router";
 
 import ButtonStyle from "lib/components/samples/ButtonStyle";
-import ContainerStyle from "lib/components/samples/Container";
 import Footer from "lib/components/samples/Footer";
 import { SocialMedia } from "lib/components/SocialMedia";
 
 const AuthorizedSocialMedia = () => {
   const { push } = useRouter();
   return (
-    <ContainerStyle>
+    <>
       <Flex flexDir="column" gap={8} p="12px">
-        <Box onClick={() => push("/")}>
+        <Box onClick={() => push("/points")}>
           <IconArrowLeft />
         </Box>
 
@@ -37,7 +36,7 @@ const AuthorizedSocialMedia = () => {
           Continuar
         </ButtonStyle>
       </Footer>
-    </ContainerStyle>
+    </>
   );
 };
 

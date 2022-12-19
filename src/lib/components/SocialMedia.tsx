@@ -10,7 +10,7 @@ interface SocialMediaProps {
 
 export const SocialMedia = ({ showPoint }: SocialMediaProps) => {
   return (
-    <Flex align="center" w="100%" flexDir="column" gap={4}>
+    <Flex align="center" w="100%" flexDir="column" gap={2}>
       {socialMedia.map(({ img, points }) => {
         return (
           <CardSwitch key={img}>

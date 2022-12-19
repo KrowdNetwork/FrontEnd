@@ -3,14 +3,13 @@ import { IconArrowLeft } from "@tabler/icons";
 import { useRouter } from "next/router";
 
 import ButtonStyle from "lib/components/samples/ButtonStyle";
-import ContainerStyle from "lib/components/samples/Container";
 import Footer from "lib/components/samples/Footer";
 
 const Offers = () => {
   const { push } = useRouter();
 
   return (
-    <ContainerStyle>
+    <>
       <Flex
         flexDir="column"
         gap={12}
@@ -37,18 +36,20 @@ const Offers = () => {
         <Img src="/lol.png" />
       </Flex>
       <Footer>
-        <ButtonStyle width="full">Comprar Pack</ButtonStyle>
+        <ButtonStyle width="full" onClick={() => push("/box")}>
+          Comprar Pack
+        </ButtonStyle>
         <Button
           width="full"
           borderRadius="8px"
           border=" 1px solid #71717A"
           bg="transparent"
-          onClick={() => push("/")}
+          onClick={() => push("/points")}
         >
           Pular
         </Button>
       </Footer>
-    </ContainerStyle>
+    </>
   );
 };
 

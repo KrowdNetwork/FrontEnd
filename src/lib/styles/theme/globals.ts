@@ -12,8 +12,8 @@ export const styles: Styles = {
 
     body: {
       backgroundColor: "#18181B",
-      maxWidth: "428px",
-      margin: "0 auto",
+      height: "100%",
+      width: "100%",
     },
   }),
 };

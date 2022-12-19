@@ -7,12 +7,15 @@ import {
   IconBuildingStore,
 } from "@tabler/icons";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Menu = () => {
+  const router = useRouter();
+
   const menuContent = [
     {
       name: "Pontos",
-      path: "/",
+      path: "/points",
       Icon: <IconClipboardText />,
     },
     {
@@ -39,23 +42,36 @@ const Menu = () => {
 
   return (
     <Flex
-      w="100%"
-      justify="center"
+      as="footer"
+      justify="space-evenly"
       align="center"
-      bg="#27272A"
-      minH="97px"
-      placeContent=" center space-between"
       padding="0px 12px"
-      position="fixed"
       bottom="0"
+      width="100%"
+      backgroundColor="var(--token-4d0a539f-039a-42a3-b209-f4c32e17640e, #27272a)"
+      flex="0 0 auto"
+      height="80px"
+      overflow="hidden"
+      position="fixed"
+      willChange="transform"
+      zIndex={1}
+      p={4}
     >
       {menuContent.map(({ name, path, Icon }) => {
         return (
-          <Button as={Link} href={path} key={name} bg="transparent" p={0} m={0}>
+          <Button
+            as={Link}
+            href={path}
+            key={name}
+            bg="transparent"
+            p={0}
+            m={0}
+            opacity={path === router.pathname ? 1 : 0.5}
+          >
             <Flex flexDir="column" align="center">
               {Icon}
               <Text
-                fontWeight={400}
+                fontWeight={600}
                 fontSize="12px"
                 textAlign="center"
                 lineHeight="18px"

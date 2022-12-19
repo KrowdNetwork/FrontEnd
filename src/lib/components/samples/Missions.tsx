@@ -18,9 +18,10 @@ const Missions = () => {
         Missões
       </Text>
       <Flex flexDir="column">
-        {missions.map((mission) => {
+        {missions.map((mission, index) => {
           return (
             <Flex
+              key={`${mission.points - index}`}
               align="center"
               bg="#27272a"
               borderRadius="8px"

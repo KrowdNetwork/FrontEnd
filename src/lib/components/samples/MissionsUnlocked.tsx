@@ -17,9 +17,10 @@ const MissionsUnlocked = () => {
         Missões desbloqueadas
       </Text>
       <Flex flexDir="column">
-        {missionsUnlocked.map((mission) => {
+        {missionsUnlocked.map((mission, index) => {
           return (
             <Flex
+              key={`${mission.points - index}`}
               align="center"
               bg="#27272a"
               borderRadius="8px"

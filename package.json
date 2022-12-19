@@ -2,7 +2,7 @@
   "name": "nextarter-chakra",
   "version": "0.1.0",
   "private": true,
-  "author": "sozonome",
+  "author": "itallo_dornelas",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -33,13 +33,15 @@
     "nodemailer": "^6.8.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-icons": "^4.6.0"
+    "react-icons": "^4.6.0",
+    "video-react": "^0.15.0"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^17.1.0",
     "@commitlint/cz-commitlint": "^17.1.2",
     "@playwright/test": "^1.27.1",
     "@types/react": "^18.0.24",
+    "@types/video-react": "^0.15.1",
     "commitizen": "^4.2.5",
     "commitlint": "^17.1.2",
     "cross-env": "^7.0.3",
