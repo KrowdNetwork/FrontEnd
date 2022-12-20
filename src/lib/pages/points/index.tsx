@@ -1,4 +1,5 @@
 import { Avatar, Box, Flex, Heading, Img, Text } from "@chakra-ui/react";
+import { useSession } from "next-auth/react";
 
 import BoxCard from "lib/components/samples/BoxCard";
 import Challenges from "lib/components/samples/Challenges";
@@ -6,6 +7,12 @@ import ContainerStyle from "lib/components/samples/Container";
 import Missions from "lib/components/samples/Missions";
 
 const Points = () => {
+  const { data: session } = useSession();
+  let user = "";
+  if (session?.user?.name) {
+    user = session?.user?.name;
+  }
+
   return (
     <ContainerStyle>
       <Box mb={6}>
@@ -19,9 +26,7 @@ const Points = () => {
         >
           <Avatar
             mt={12}
-            name="Segun Adebayo"
-            src="https://bit.ly/dan-abramov"
-            background="url(segun_adebayo.jpg)"
+            name={user}
             border="4px solid #FFFFFF"
             borderRadius="9999px"
             size="lg"

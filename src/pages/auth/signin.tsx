@@ -52,9 +52,11 @@ const providers = [
 
 const Signin = () => {
   const { data: session, status } = useSession();
+
   const { push } = useRouter();
 
   const [email, setEmail] = useState("");
+
   if (session) push("/");
   if (status === "loading")
     return (
@@ -78,8 +80,8 @@ const Signin = () => {
       Message.error("", "Email não valido");
       return;
     }
-    push("/authorized-social-media");
-    // signIn("email", { email, redirect: false });
+
+    signIn("email", { email, redirect: false });
   };
 
   return (

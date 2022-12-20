@@ -1,5 +1,5 @@
 import { Avatar, Button, Flex, Text, Box, Divider } from "@chakra-ui/react";
-import { signOut } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 
 import ContainerStyle from "lib/components/samples/Container";
@@ -12,13 +12,20 @@ const Profile = () => {
 
     push(data.url);
   };
+
+  const { data: session } = useSession();
+  let user = "";
+  if (session?.user?.name) {
+    user = session?.user?.name;
+  }
+
   return (
     <ContainerStyle>
       <Box p="12px">
         <Flex align="center" gap={2} mt={6} mb={6}>
-          <Avatar />
+          <Avatar name={user} size="lg" />
           <Text fontSize="30px" fontWeight={700} lineHeight="39.9px">
-            Victor Luna
+            {user}
           </Text>
         </Flex>
         <Divider />
