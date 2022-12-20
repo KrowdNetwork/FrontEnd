@@ -3,7 +3,7 @@ import NextAuth from "next-auth";
 // import EmailProvider from "next-auth/providers/email";
 import FacebookProvider from "next-auth/providers/facebook";
 import GoogleProvider from "next-auth/providers/google";
-import InstagramProvider from "next-auth/providers/instagram";
+// import InstagramProvider from "next-auth/providers/instagram";
 import TwitchProvider from "next-auth/providers/twitch";
 
 export default NextAuth({
@@ -32,14 +32,14 @@ export default NextAuth({
         ? process.env.GOOGLE_CLIENT_SECRET
         : "",
     }),
-    InstagramProvider({
-      clientId: process.env.INSTAGRAM_CLIENT_ID
-        ? process.env.INSTAGRAM_CLIENT_ID
-        : "",
-      clientSecret: process.env.INSTAGRAM_CLIENT_SECRET
-        ? process.env.INSTAGRAM_CLIENT_SECRET
-        : "",
-    }),
+    // InstagramProvider({
+    //   clientId: process.env.INSTAGRAM_CLIENT_ID
+    //     ? process.env.INSTAGRAM_CLIENT_ID
+    //     : "",
+    //   clientSecret: process.env.INSTAGRAM_CLIENT_SECRET
+    //     ? process.env.INSTAGRAM_CLIENT_SECRET
+    //     : "",
+    // }),
 
     // EmailProvider({
     //   server: {
