@@ -16,7 +16,6 @@ import {
   IconBrandFacebook,
   IconBrandGoogle,
   IconBrandTwitch,
-  IconBrandInstagram,
 } from "@tabler/icons";
 import { AnimatePresence, motion } from "framer-motion";
 import { signIn, useSession } from "next-auth/react";
@@ -44,10 +43,10 @@ const providers = [
     bgColor: "#FFFFFF",
     color: "#537DED",
   },
-  {
-    name: "Instagram",
-    Icon: <IconBrandInstagram />,
-  },
+  // {
+  //   name: "Instagram",
+  //   Icon: <IconBrandInstagram />,
+  // },
 ];
 
 const Signin = () => {
