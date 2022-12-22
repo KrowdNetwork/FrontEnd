@@ -1,4 +1,5 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
+import { useSelector } from "react-redux";
 
 import Card from "lib/components/samples/Card";
 import ContainerStyle from "lib/components/samples/Container";
@@ -9,22 +10,28 @@ import {
   cardForExperiences,
   cardForInGame,
 } from "lib/mocks/card";
+import { addProduct } from "store/productSlice";
+import type { IStoreProps } from "store/store";
 
 const Store = () => {
+  const points = useSelector((state: IStoreProps) => state.points.totalPoints);
+  // const cards = useSelector((state: IStoreProps) => state.product);
+
   return (
     <ContainerStyle>
-      <Header title="Loja" points="11,324" />
+      <Header title="Loja" points={`${points}`} />
       <Box mb={6} p="0px 20px">
         <Flex gap={8} w="100%" overflowX="auto" mb="30px">
-          {cardForCarousel.map((card, index) => {
+          {cardForCarousel.map((product, index) => {
             return (
               <Card
-                key={`${index - card.value}`}
+                key={`${index - product.value}`}
                 widthCard="100%"
                 heightImg="220px"
-                description={card.description}
-                imgPath={card.imgPath}
-                price={card.value}
+                description={product.description}
+                imgPath={product.imgPath}
+                price={product.value}
+                onClickCard={() => addProduct({ product })}
               />
             );
           })}
@@ -41,15 +48,16 @@ const Store = () => {
             Experiências
           </Text>
           <Flex gap={4} w="100%" overflowX="auto">
-            {cardForExperiences.map((card, index) => {
+            {cardForExperiences.map((product, index) => {
               return (
                 <Card
-                  key={`${index - card.value}`}
+                  key={`${index - product.value}`}
                   widthCard="220px"
                   heightImg="160px"
-                  description={card.description}
-                  imgPath={card.imgPath}
-                  points={card.value}
+                  description={product.description}
+                  imgPath={product.imgPath}
+                  points={product.value}
+                  onClickCard={() => addProduct({ product })}
                 />
               );
             })}
@@ -67,15 +75,16 @@ const Store = () => {
             In-Game
           </Text>
           <Flex gap={4} w="100%" overflowX="auto">
-            {cardForInGame.map((card, index) => {
+            {cardForInGame.map((product, index) => {
               return (
                 <Card
-                  key={`${index - card.value}`}
+                  key={`${index - product.value}`}
                   widthCard="70%"
                   heightImg="160px"
-                  description={card.description}
-                  imgPath={card.imgPath}
-                  points={card.value}
+                  description={product.description}
+                  imgPath={product.imgPath}
+                  points={product.value}
+                  onClickCard={() => addProduct({ product })}
                 />
               );
             })}
@@ -85,8 +94,8 @@ const Store = () => {
           w="100%"
           justify="flex-start"
           flexDir="column"
-          mb="30px"
-          height="600px"
+          mb="100px"
+          height="100%"
         >
           <Text
             fontSize="32px"
@@ -99,14 +108,15 @@ const Store = () => {
             Produtos Exclusivos
           </Text>
           <Flex w="100%" flexDir="column">
-            {cardForExclusiveProducts.map((card, index) => {
+            {cardForExclusiveProducts.map((product, index) => {
               return (
                 <Card
-                  key={`${index - card.value}`}
+                  key={`${index - product.value}`}
                   widthCard="100%"
-                  description={card.description}
-                  imgPath={card.imgPath}
-                  points={card.value}
+                  description={product.description}
+                  imgPath={product.imgPath}
+                  points={product.value}
+                  onClickCard={() => addProduct({ product })}
                 />
               );
             })}

@@ -1,13 +1,17 @@
 import { Avatar, Box, Flex, Heading, Img, Text } from "@chakra-ui/react";
 import { useSession } from "next-auth/react";
+import { useSelector } from "react-redux";
 
 import BoxCard from "lib/components/samples/BoxCard";
 import Challenges from "lib/components/samples/Challenges";
 import ContainerStyle from "lib/components/samples/Container";
 import Missions from "lib/components/samples/Missions";
+import type { IStoreProps } from "store/store";
 
 const Points = () => {
   const { data: session } = useSession();
+  const points = useSelector((state: IStoreProps) => state.points.totalPoints);
+
   let user = "";
   if (session?.user?.name) {
     user = session?.user?.name;
@@ -20,7 +24,7 @@ const Points = () => {
           flexDir="column"
           gap={2}
           align="center"
-          bg="url(white-noise.png), linear-gradient(127.25deg, #8338EC 0%, #FFBE0B 100%)"
+          bg="linear-gradient(127.25deg, #8338EC 0%, #FFBE0B 100%)"
           h="382px"
           mb="24px"
         >
@@ -39,7 +43,7 @@ const Points = () => {
               textAlign="center"
               lineHeight="60px"
             >
-              11,324
+              {points}
             </Heading>
             <Text
               color="black"

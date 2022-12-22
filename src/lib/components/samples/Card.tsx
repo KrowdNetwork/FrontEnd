@@ -1,5 +1,5 @@
+/* eslint-disable jsx-a11y/media-has-caption */
 import { Badge, Box, Flex, Img, Text } from "@chakra-ui/react";
-import { Player } from "video-react";
 
 interface CardProps {
   imgPath?: string;
@@ -11,6 +11,7 @@ interface CardProps {
   infos?: string;
   isVideo?: boolean;
   videoPath?: string;
+  onClickCard?: () => void;
 }
 
 const Card = ({
@@ -23,12 +24,25 @@ const Card = ({
   infos,
   isVideo,
   videoPath,
+  onClickCard,
 }: CardProps) => {
   return (
-    <Flex flexDir="column" minW={widthCard} mt="20px">
+    <Flex
+      flexDir="column"
+      minW={widthCard}
+      mt="20px"
+      // eslint-disable-next-line no-return-assign
+      onClick={onClickCard}
+    >
       {isVideo ? (
         <Box borderRadius="12px 12px 0px 0px">
-          <Player autoPlay playsInline fluid src={videoPath} />
+          <video
+            src={videoPath}
+            width="100%"
+            height="100%"
+            controls={false}
+            autoPlay
+          />
         </Box>
       ) : (
         <Img

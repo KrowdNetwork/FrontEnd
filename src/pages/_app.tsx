@@ -6,6 +6,7 @@ import Head from "next/head";
 import defaultSEOConfig from "../../next-seo.config";
 import { Chakra } from "lib/components/Chakra";
 import Layout from "lib/layout";
+import { wrapper } from "store/store";
 
 const MyApp = ({
   Component,
@@ -29,4 +30,4 @@ const MyApp = ({
   );
 };
 
-export default MyApp;
+export default wrapper.withRedux(MyApp);
