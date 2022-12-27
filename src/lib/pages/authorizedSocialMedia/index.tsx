@@ -11,9 +11,7 @@ const AuthorizedSocialMedia = () => {
   return (
     <>
       <Flex flexDir="column" gap={8} p="12px" mb="120px">
-        <Box onClick={() => push("/points")}>
-          <IconArrowLeft />
-        </Box>
+        <IconArrowLeft onClick={() => push("/points")} />
 
         <Box>
           <Text fontSize="20px" fontWeight={700} lineHeight="24px" mb={2}>

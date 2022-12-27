@@ -81,11 +81,6 @@ const Points = () => {
             </Text>
             <Flex flexWrap="nowrap" overflow="auto">
               <Img src="/KAMI 2 1.png" w="100px" h="100px" />
-              <Img src="/KAMI 2 1.png" w="100px" h="100px" />
-              <Img src="/KAMI 2 1.png" w="100px" h="100px" />
-              <Img src="/KAMI 2 1.png" w="100px" h="100px" />
-              <Img src="/KAMI 2 1.png" w="100px" h="100px" />
-              <Img src="/KAMI 2 1.png" w="100px" h="100px" />
             </Flex>
           </Flex>
           <Flex flexDir="column" mt={14}>

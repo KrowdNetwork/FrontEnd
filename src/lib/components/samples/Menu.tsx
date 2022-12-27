@@ -1,12 +1,11 @@
 import { Button, Flex, Text } from "@chakra-ui/react";
 import {
+  IconBox,
+  IconBriefcase,
+  IconBuildingStore,
   IconClipboardText,
   IconUser,
-  IconBriefcase,
-  IconBox,
-  IconBuildingStore,
 } from "@tabler/icons";
-import Link from "next/link";
 import { useRouter } from "next/router";
 
 const Menu = () => {
@@ -60,9 +59,8 @@ const Menu = () => {
       {menuContent.map(({ name, path, Icon }) => {
         return (
           <Button
-            as={Link}
-            href={path}
             key={name}
+            onClick={() => router.push(path)}
             bg="transparent"
             p={0}
             m={0}

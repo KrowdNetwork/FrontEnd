@@ -1,3 +1,4 @@
+import type { Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
 import { DefaultSeo } from "next-seo";
 import type { AppProps } from "next/app";
@@ -13,7 +14,9 @@ const MyApp = ({
   Component,
   pageProps: { session, ...pageProps },
   ...rest
-}: AppProps) => {
+}: AppProps<{
+  session: Session;
+}>) => {
   const { store } = storeWrapper.useWrappedStore(rest);
 
   return (
