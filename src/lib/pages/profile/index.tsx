@@ -21,7 +21,7 @@ const Profile = () => {
 
   return (
     <ContainerStyle>
-      <Box p="12px">
+      <Box p="12px" mb={120}>
         <Flex align="center" gap={2} mt={6} mb={6}>
           <Avatar name={user} size="lg" />
           <Text fontSize="30px" fontWeight={700} lineHeight="39.9px">

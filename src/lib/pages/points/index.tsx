@@ -7,6 +7,7 @@ import Challenges from "lib/components/samples/Challenges";
 import ContainerStyle from "lib/components/samples/Container";
 import Missions from "lib/components/samples/Missions";
 import type { IStoreProps } from "store/store";
+import { arround } from "utils/arround";
 
 const Points = () => {
   const { data: session } = useSession();
@@ -25,17 +26,39 @@ const Points = () => {
           gap={2}
           align="center"
           bg="linear-gradient(127.25deg, #8338EC 0%, #FFBE0B 100%)"
-          h="382px"
-          mb="24px"
+          h="441px"
+          mb="50px"
+          borderRadius="0px 0px 12px 12px"
         >
           <Avatar
             mt={12}
             name={user}
             border="4px solid #FFFFFF"
             borderRadius="9999px"
-            size="lg"
+            size="md"
           />
-          <Flex align="center" flexDir="column" gap={2}>
+          <Flex align="center" flexDir="column" gap={3} mt={4}>
+            <Text
+              color="black"
+              fontWeight={800}
+              fontSize="16px"
+              textAlign="center"
+              lineHeight="24px"
+            >
+              Olá, {user}!
+            </Text>
+
+            <Text
+              color="black"
+              fontWeight={800}
+              fontSize="12px"
+              textAlign="center"
+              lineHeight="27px"
+              textTransform="uppercase"
+              letterSpacing="2px"
+            >
+              pontos
+            </Text>
             <Heading
               color="black"
               fontWeight={800}
@@ -43,20 +66,29 @@ const Points = () => {
               textAlign="center"
               lineHeight="60px"
             >
-              {points}
+              {arround(points, 3)}
             </Heading>
             <Text
               color="black"
-              fontWeight={400}
-              fontSize="18px"
+              fontWeight={800}
+              fontSize="12px"
               textAlign="center"
               lineHeight="27px"
+              textTransform="uppercase"
+              letterSpacing="2px"
             >
-              pontos
+              Cards ativos
             </Text>
+            <Flex flexWrap="nowrap" overflow="auto">
+              <Img src="/KAMI 2 1.png" w="100px" h="100px" />
+              <Img src="/KAMI 2 1.png" w="100px" h="100px" />
+              <Img src="/KAMI 2 1.png" w="100px" h="100px" />
+              <Img src="/KAMI 2 1.png" w="100px" h="100px" />
+              <Img src="/KAMI 2 1.png" w="100px" h="100px" />
+              <Img src="/KAMI 2 1.png" w="100px" h="100px" />
+            </Flex>
           </Flex>
-          <Img src="/KAMI 2 1.png" />
-          <Flex flexDir="column">
+          <Flex flexDir="column" mt={14}>
             <Flex p="12px" flexDir="column" gap={4}>
               <Challenges />
               <Missions />

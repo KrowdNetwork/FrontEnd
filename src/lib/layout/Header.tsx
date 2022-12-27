@@ -1,11 +1,14 @@
 import { Flex, Text } from "@chakra-ui/react";
+import { IconArrowLeft } from "@tabler/icons";
 
 interface HeaderProps {
   title: string;
   points?: string;
+  goBack?: () => void;
+  hasToBack?: boolean;
 }
 
-const Header = ({ title, points }: HeaderProps) => {
+const Header = ({ title, points, goBack, hasToBack }: HeaderProps) => {
   return (
     <Flex
       as="header"
@@ -22,9 +25,12 @@ const Header = ({ title, points }: HeaderProps) => {
       zIndex={1}
       p={4}
     >
-      <Text fontWeight={700} fontSize="20px" lineHeight="24px">
-        {title}
-      </Text>
+      <Flex align="center" gap={2}>
+        {hasToBack && <IconArrowLeft onClick={goBack} />}
+        <Text fontWeight={700} fontSize="20px" lineHeight="24px">
+          {title}
+        </Text>
+      </Flex>
       {points && (
         <Flex
           align="center"

@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
 
@@ -14,7 +15,6 @@ export const pointsSlice = createSlice({
   initialState,
   reducers: {
     decrementByAmount: (state, action: PayloadAction<number>) => {
-      // eslint-disable-next-line no-param-reassign
       state.totalPoints -= action.payload;
     },
   },

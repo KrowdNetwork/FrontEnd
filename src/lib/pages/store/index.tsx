@@ -1,6 +1,7 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
-import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
 
+import { useAppDispatch, useAppSelector } from "hooks";
 import Card from "lib/components/samples/Card";
 import ContainerStyle from "lib/components/samples/Container";
 import Header from "lib/layout/Header";
@@ -10,16 +11,28 @@ import {
   cardForExperiences,
   cardForInGame,
 } from "lib/mocks/card";
-import { addProduct } from "store/productSlice";
-import type { IStoreProps } from "store/store";
+import type { IInfosProductProps } from "store/product/productSlice";
+import { addProduct } from "store/product/productSlice";
+import { arround } from "utils/arround";
 
 const Store = () => {
-  const points = useSelector((state: IStoreProps) => state.points.totalPoints);
-  // const cards = useSelector((state: IStoreProps) => state.product);
+  const dispatch = useAppDispatch();
+  const points = useAppSelector((state) => state.points.totalPoints);
+  const router = useRouter();
+
+  const getCardProps = (product: IInfosProductProps) => {
+    dispatch(addProduct(product));
+    router.push("/rescue");
+  };
+
+  const getBoxProps = (product: IInfosProductProps) => {
+    dispatch(addProduct(product));
+    router.push("/box");
+  };
 
   return (
     <ContainerStyle>
-      <Header title="Loja" points={`${points}`} />
+      <Header title="Loja" points={`${arround(points, 3)}`} />
       <Box mb={6} p="0px 20px">
         <Flex gap={8} w="100%" overflowX="auto" mb="30px">
           {cardForCarousel.map((product, index) => {
@@ -31,7 +44,7 @@ const Store = () => {
                 description={product.description}
                 imgPath={product.imgPath}
                 price={product.value}
-                onClickCard={() => addProduct({ product })}
+                onClickCard={() => getBoxProps(product)}
               />
             );
           })}
@@ -57,7 +70,7 @@ const Store = () => {
                   description={product.description}
                   imgPath={product.imgPath}
                   points={product.value}
-                  onClickCard={() => addProduct({ product })}
+                  onClickCard={() => getCardProps(product)}
                 />
               );
             })}
@@ -84,7 +97,7 @@ const Store = () => {
                   description={product.description}
                   imgPath={product.imgPath}
                   points={product.value}
-                  onClickCard={() => addProduct({ product })}
+                  onClickCard={() => getCardProps(product)}
                 />
               );
             })}
@@ -116,7 +129,7 @@ const Store = () => {
                   description={product.description}
                   imgPath={product.imgPath}
                   points={product.value}
-                  onClickCard={() => addProduct({ product })}
+                  onClickCard={() => getCardProps(product)}
                 />
               );
             })}

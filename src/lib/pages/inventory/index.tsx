@@ -5,7 +5,7 @@ import ContainerStyle from "lib/components/samples/Container";
 import Header from "lib/layout/Header";
 import { cardInventory } from "lib/mocks/card";
 
-const Inventories = () => {
+const Inventory = () => {
   return (
     <ContainerStyle>
       <Header title="Inventário" />
@@ -30,4 +30,4 @@ const Inventories = () => {
   );
 };
 
-export default Inventories;
+export default Inventory;

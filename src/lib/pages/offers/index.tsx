@@ -15,7 +15,8 @@ const Offers = () => {
         gap={12}
         p="12px"
         bgImage="/background.png"
-        h="83vh"
+        h="100vh"
+        mb="120px"
       >
         <Box onClick={() => push("/authorized-social-media")}>
           <IconArrowLeft />

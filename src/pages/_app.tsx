@@ -2,16 +2,20 @@ import { SessionProvider } from "next-auth/react";
 import { DefaultSeo } from "next-seo";
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import { Provider } from "react-redux";
 
 import defaultSEOConfig from "../../next-seo.config";
 import { Chakra } from "lib/components/Chakra";
 import Layout from "lib/layout";
-import { wrapper } from "store/store";
+import { storeWrapper } from "store/store";
 
 const MyApp = ({
   Component,
   pageProps: { session, ...pageProps },
+  ...rest
 }: AppProps) => {
+  const { store } = storeWrapper.useWrappedStore(rest);
+
   return (
     <Chakra>
       <Head>
@@ -20,14 +24,16 @@ const MyApp = ({
           content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover"
         />
       </Head>
-      <SessionProvider session={session}>
-        <DefaultSeo {...defaultSEOConfig} />
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </SessionProvider>
+      <Provider store={store}>
+        <SessionProvider session={session}>
+          <DefaultSeo {...defaultSEOConfig} />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </SessionProvider>
+      </Provider>
     </Chakra>
   );
 };
 
-export default wrapper.withRedux(MyApp);
+export default MyApp;

@@ -10,7 +10,7 @@ const AuthorizedSocialMedia = () => {
   const { push } = useRouter();
   return (
     <>
-      <Flex flexDir="column" gap={8} p="12px">
+      <Flex flexDir="column" gap={8} p="12px" mb="120px">
         <Box onClick={() => push("/points")}>
           <IconArrowLeft />
         </Box>

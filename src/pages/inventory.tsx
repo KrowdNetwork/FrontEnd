@@ -1,7 +1,3 @@
-import Inventories from "lib/pages/inventory";
-
-const Inventory = () => {
-  return <Inventories />;
-};
+import Inventory from "lib/pages/inventory";
 
 export default Inventory;
