@@ -37,7 +37,7 @@ const Checkout = ({ width, height }: CheckoutProps) => {
       position="relative"
     >
       <Image src="/checkout.png" w={width} h={height} />
-      <Flex top={360} zIndex={2} position="absolute" flexDir="column" gap={6}>
+      <Flex top="55%" zIndex={2} position="absolute" flexDir="column" gap={6}>
         <Text
           fontSize="24px"
           textTransform="uppercase"

@@ -45,12 +45,12 @@ export const cardForInGame = [
   {
     imgPath: "/skin.png",
     description: "Skins",
-    value: 800,
+    value: 1.806,
   },
   {
     imgPath: "/bau.png",
     description: "Baús",
-    value: 800,
+    value: 1.802,
   },
 ];
 
